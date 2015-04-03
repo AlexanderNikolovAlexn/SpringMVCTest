@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init" default-destroy-method="destroy">
 
 
 
 	<bean id="person" class="com.samodeika.spring.test.Person"
-		scope="prototype">
+		init-method="onCreate" destroy-method="onDestroy" factory-method="getInstance">
 		<constructor-arg name="id" value="555"></constructor-arg>
 		<constructor-arg name="name" value="Marry"></constructor-arg>
+		<property name="taxId">
+			<value>321</value>
+		</property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+	<bean id="person2" class="com.samodeika.spring.test.Person"
+		init-method="onCreate" destroy-method="onDestroy"
+		factory-method="createPerson" factory-bean="personFactory">
+		<constructor-arg name="id" value="123"></constructor-arg>
+		<constructor-arg name="name" value="Mike"></constructor-arg>
 		<property name="taxId">
 			<value>321</value>
 		</property>
@@ -19,5 +31,8 @@
 	<bean id="address" class="com.samodeika.spring.test.Address">
 		<constructor-arg name="street" value="Rodopski izvor 43A"></constructor-arg>
 		<constructor-arg name="postcode" value="1680"></constructor-arg>
+	</bean>
+	<bean id="personFactory"
+		class="com.samodeika.spring.test.PersonFactory">
 	</bean>
 </beans>
