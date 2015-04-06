@@ -21,7 +21,11 @@ public class App {
 		//System.out.println(fruitBasket);
 		
 		//0209 List of beans
-		Jungle jungle = (Jungle)context.getBean("jungle");
+		/*Jungle jungle = (Jungle)context.getBean("jungle");
+		System.out.println(jungle);*/
+		
+		//0211 Property Maps
+		JungleFood jungle = (JungleFood)context.getBean("jungleFood");
 		System.out.println(jungle);
 		
 		((ClassPathXmlApplicationContext)context).close();
