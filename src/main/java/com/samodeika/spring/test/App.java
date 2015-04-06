@@ -17,8 +17,12 @@ public class App {
 		//System.out.println(address2);
 		
 		//0208 Setting List Values
-		FruitBasket fruitBasket = (FruitBasket)context.getBean("basket");
-		System.out.println(fruitBasket);
+		//FruitBasket fruitBasket = (FruitBasket)context.getBean("basket");
+		//System.out.println(fruitBasket);
+		
+		//0209 List of beans
+		Jungle jungle = (Jungle)context.getBean("jungle");
+		System.out.println(jungle);
 		
 		((ClassPathXmlApplicationContext)context).close();
 	}
