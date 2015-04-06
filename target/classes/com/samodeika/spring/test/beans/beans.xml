@@ -8,7 +8,7 @@
 
 
 	<bean id="person" class="com.samodeika.spring.test.Person"
-		init-method="onCreate" destroy-method="onDestroy" factory-method="getInstance">
+		factory-method="getInstance">
 		<constructor-arg name="id" value="555"></constructor-arg>
 		<constructor-arg name="name" value="Marry"></constructor-arg>
 		<property name="taxId">
@@ -18,8 +18,7 @@
 	</bean>
 
 	<bean id="person2" class="com.samodeika.spring.test.Person"
-		init-method="onCreate" destroy-method="onDestroy" factory-method="createPerson"
-		factory-bean="personFactory">
+		factory-method="createPerson" factory-bean="personFactory">
 		<constructor-arg name="id" value="123"></constructor-arg>
 		<constructor-arg name="name" value="Mike"></constructor-arg>
 		<property name="taxId">
@@ -39,5 +38,14 @@
 	</bean>
 
 	<bean id="personFactory" class="com.samodeika.spring.test.PersonFactory">
+	</bean>
+	<bean id="basket" class="com.samodeika.spring.test.FruitBasket">
+		<constructor-arg value="John`s fruit basket" name="name"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>orange</value>
+				<value>apple</value>
+			</list>
+		</constructor-arg>
 	</bean>
 </beans>

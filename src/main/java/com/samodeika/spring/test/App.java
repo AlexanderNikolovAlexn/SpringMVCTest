@@ -9,15 +9,16 @@ public class App {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/samodeika/spring/test/beans/beans.xml");
 		
-		Person person = (Person)context.getBean("person");		
-		
-		person.setTaxId(666);
-		
+		//Person person = (Person)context.getBean("person");				
+		//person.setTaxId(666);		
 		//System.out.println(person1);
-		System.out.println(person);
+		//System.out.println(person);		
+		//Address address2 = (Address)context.getBean("address2");
+		//System.out.println(address2);
 		
-		Address address2 = (Address)context.getBean("address2");
-		System.out.println(address2);
+		//0208 Setting List Values
+		FruitBasket fruitBasket = (FruitBasket)context.getBean("basket");
+		System.out.println(fruitBasket);
 		
 		((ClassPathXmlApplicationContext)context).close();
 	}
