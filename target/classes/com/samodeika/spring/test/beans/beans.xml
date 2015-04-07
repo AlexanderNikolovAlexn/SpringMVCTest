@@ -8,12 +8,7 @@
 	<bean id="logger" class="com.samodeika.spring.test.Logger">
 	</bean>
 
-	<bean id="consoleWriter"
-		class="com.samodeika.spring.test.ConsoleWriter">
-	<qualifier value="toconsole"></qualifier>
-	</bean>
-
-	<bean id="squirrel" class="com.samodeika.spring.test.ConsoleWriter">
+	<bean id="consoleWriter" class="com.samodeika.spring.test.ConsoleWriter">
 	</bean>
 
 	<bean id="fileWriter" class="com.samodeika.spring.test.FileWriter">

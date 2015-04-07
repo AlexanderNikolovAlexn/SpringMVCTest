@@ -1,21 +1,18 @@
 package com.samodeika.spring.test;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
 
 public class Logger {
 
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 
-	@Autowired
-	@Qualifier("toconsole")
+	@Resource
 	public void setConsoleWriter(ConsoleWriter consoleWriter) {
 		this.consoleWriter = consoleWriter;
 	}
 
-	@Autowired
-	@Qualifier("filewriter")
+	@Resource(name="fileWriter")
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
