@@ -1,7 +1,6 @@
 package com.samodeika.spring.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,13 +14,12 @@ public class Robot {
 	}
 
 	@Autowired
-	public void setId(@Value("#{randomText.text?.length()}") String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 	@Autowired
-	// new java.util.Date().toString(); T(Math).PI
-	public void setSpeech(@Value("#{T(Math).PI}") String speech) {
+	public void setSpeech(String speech) {
 		this.speech = speech;
 	}
 	
