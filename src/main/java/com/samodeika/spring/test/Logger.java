@@ -1,5 +1,7 @@
 package com.samodeika.spring.test;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 public class Logger {
@@ -12,7 +14,7 @@ public class Logger {
 		this.consoleWriter = consoleWriter;
 	}
 
-	@Resource(name="fileWriter")
+	@Resource(name = "fileWriter")
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
@@ -27,4 +29,14 @@ public class Logger {
 		}
 	}
 
+	@PostConstruct
+	public void init() {
+		System.out.println("init");
+	}
+
+	@PreDestroy
+	public void destroy() {
+		System.out.println("destroy");
+	}
+	
 }
