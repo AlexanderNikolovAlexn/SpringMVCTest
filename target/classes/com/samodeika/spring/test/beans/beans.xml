@@ -11,7 +11,13 @@
 	<bean id="consoleWriter" class="com.samodeika.spring.test.ConsoleWriter">
 	</bean>
 
+	<bean id="cw2" class="com.samodeika.spring.test.ConsoleWriter">
+	</bean>
+
 	<bean id="fileWriter" class="com.samodeika.spring.test.FileWriter">
+	</bean>
+
+	<bean id="fw2" class="com.samodeika.spring.test.FileWriter">
 	</bean>
 
 	<context:annotation-config></context:annotation-config>

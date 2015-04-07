@@ -2,19 +2,22 @@ package com.samodeika.spring.test;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 public class Logger {
 
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 
-	@Resource
+	@Inject
+	@Named(value="consoleWriter")
 	public void setConsoleWriter(ConsoleWriter consoleWriter) {
 		this.consoleWriter = consoleWriter;
 	}
 
-	@Resource(name = "fileWriter")
+	@Inject
+	@Named(value="fileWriter")
 	public void setFileWriter(LogWriter fileWriter) {
 		this.fileWriter = fileWriter;
 	}
