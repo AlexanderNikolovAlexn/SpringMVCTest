@@ -6,8 +6,8 @@ public class Logger {
 
 	private ConsoleWriter consoleWriter;
 	private FileWriter fileWriter;
-	
-	@Autowired
+
+	@Autowired(required=false)
 	public void setConsoleWriter(ConsoleWriter consoleWriter) {
 		this.consoleWriter = consoleWriter;
 	}
@@ -22,7 +22,9 @@ public class Logger {
 	}
 
 	public void writeConsole(String text) {
-		this.consoleWriter.write(text);
+		if (this.consoleWriter != null) {
+			this.consoleWriter.write(text);
+		}
 	}
 
 }
